@@ -59,7 +59,10 @@ class UserSerializer(serializers.ModelSerializer):
         return attrs
     
     def create(self, validated_data):
-        user = User.create_user(firstname=validated_data['firstName'], lastName=validated_data['lastName']\
-                                email=validated_data['email'])
-        user.set_password(validated_data['password'])
+        user = User.objects.create_user(firstName=validated_data['firstName'], lastName=validated_data['lastName'],\
+                                email=validated_data['email'], password=validated_data['password'])
+    
+        user.save()
+
+        return user
 

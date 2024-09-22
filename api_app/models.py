@@ -46,4 +46,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = CustomBaseUserManager()
 
+class Organisation(models.Model):
+    orgId = models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True)
+    name = models.CharField(max_length=125, null=False)
+    description = models.TextField()
+    organization = models.ManyToManyField(User)
+
+
     

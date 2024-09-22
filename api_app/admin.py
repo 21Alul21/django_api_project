@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # # Register your models here.
-from .models import User
+from .models import User, Organisation
 
 
 
@@ -20,3 +20,4 @@ class CustomAdmin(UserAdmin):
 
 
 admin.site.register(User, CustomAdmin)
+admin.site.register(Organisation)
